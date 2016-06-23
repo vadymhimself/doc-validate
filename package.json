@@ -1,0 +1,23 @@
+{
+  "name": "js-doc-validate",
+  "version": "0.1.0",
+  "description": "simple node.js doc validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bolein/js-doc-validate.git"
+  },
+  "author": "bolein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bolein/js-doc-validate/issues"
+  },
+  "homepage": "https://github.com/bolein/js-doc-validate#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
