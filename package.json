@@ -1,5 +1,5 @@
 {
-  "name": "js-doc-validate",
+  "name": "doc-validate",
   "version": "0.1.0",
   "description": "simple node.js doc validator",
   "main": "index.js",
