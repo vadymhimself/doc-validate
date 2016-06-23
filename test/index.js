@@ -7,7 +7,7 @@ const environment = {
     request: {
         method: 'get',
         query: {
-            token: "fc6d20d49ec2f447a46bd56b8c89b61aaec776e82491c4f5f31a31cd5d819b71f17a75ed11717c29428e3",
+            token: "fc6d20d49ec2f447a46bd56b8c89b6asfa316e82491c4f5f31a31cd5d819b71f17a75ed11717c29428e3",
             limit: 5,
             offset: 25
         }
