@@ -1,15 +1,5 @@
 'use strict';
 
-// custom error
-function DocError(message, code) {
-    this.name = 'DocError';
-    this.message = message || 'error validating doc';
-    this.code = code;
-}
-
-DocError.prototype = Object.create(Error.prototype);
-DocError.prototype.constructor = DocError;
-
 module.exports = function (doc) {
     // parse doc and trigger errors
     // TODO: collect all errors not only the first one
@@ -45,3 +35,13 @@ module.exports = function (doc) {
 
     return [validateRequest, errorHandler];
 };
+
+// custom error
+function DocError(message, code) {
+    this.name = 'DocError';
+    this.message = message || 'error validating doc';
+    this.code = code;
+}
+
+DocError.prototype = Object.create(Error.prototype);
+DocError.prototype.constructor = DocError;
