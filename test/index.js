@@ -56,7 +56,7 @@ describe('validator', function () {
         try {
             expect(validate(req)).to.throw(Error);
         } catch (err) {
-            expect(err.internalCode).to.be.equal(1); // wrong method
+            expect(err.code).to.be.equal(1); // wrong method
         }
     });
     it('throws error on missing required parameters', function () {
@@ -64,7 +64,7 @@ describe('validator', function () {
         try {
             expect(validate(req)).to.throw(Error);
         } catch (err) {
-            expect(err.internalCode).to.be.equal(2);
+            expect(err.code).to.be.equal(2);
         }
     });
     // TODO: more tests

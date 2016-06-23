@@ -4,7 +4,7 @@
 function DocError(message, code) {
     this.name = 'DocError';
     this.message = message || 'error validating doc';
-    this.internalCode = code;
+    this.code = code;
 }
 
 DocError.prototype = Object.create(Error.prototype);
