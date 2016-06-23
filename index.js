@@ -38,8 +38,8 @@ module.exports = function (doc) {
 
     let errorHandler = function (err, req, res, next) {
         // the error codes inside validator is for local use e.g. for unit tests
-        // the real http code is always 400 since the request validation failed
-        err.code = 400;
+        // the real http status is always 400 since the request validation failed
+        err.status = 400;
         next(err);
     };
 
