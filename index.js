@@ -5,7 +5,7 @@ module.exports = function (doc) {
     // TODO: collect all errors not only the first one
     // TODO: validate the doc structure itself
     let validateRequest = function (req, res, next) { // declared here to take closure on doc
-        if (req.method.toUpperCase() !== doc.method.toUpperCase()) { // compare ignoring case
+        if (doc.method && doc.method.toUpperCase() !== 'ALL' && req.method.toUpperCase() !== doc.method.toUpperCase()) { // compare ignoring case
             throw new DocError(`wrong method. expected ${doc.method.toUpperCase()}`, 1);
         }
         doc.queryParams.forEach(function (param) {
