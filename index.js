@@ -24,6 +24,7 @@ module.exports = function (doc) {
                 }
             }
         });
+        next();
     };
 
     let errorHandler = function (err, req, res, next) {
