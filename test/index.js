@@ -38,7 +38,7 @@ const environment = {
 };
 
 function naturalNumberTest(number) {
-    if (number < 0) throw new Error(`must be greater then zero`);
+    if (number < 0) throw new Error(`must be greater than zero`);
     if (!Number.isInteger(number)) throw new Error(`must be integer`);
 }
 
@@ -64,8 +64,17 @@ describe('validator', function () {
         try {
             expect(validate(req)).to.throw(Error);
         } catch (err) {
-            expect(err.code).to.be.equal(2);
+            expect(err.code).to.be.equal(2);// missing required query param
         }
     });
     // TODO: more tests
+    it('throws error if wrong type', function() {
+        req.query.limit = 'Telest';
+        try {
+            expect(validate(req)).to.throw(Error);
+        }
+        catch(e){
+            expect(e.code).to.be.equal(3); //wrong query param type
+        }
+    });
 });
