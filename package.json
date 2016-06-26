@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bolein/js-doc-validate#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "deepcopy": "^0.6.3",
     "mocha": "^2.5.3"
   }
 }

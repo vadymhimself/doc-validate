@@ -1,6 +1,7 @@
 'use strict';
 
-const expect = require('chai').expect;
+const expect = require('chai').expect,
+    deepcopy = require('deepcopy');
 
 // environment preparation
 const environment = {
@@ -46,10 +47,10 @@ const validate = require('../index')(environment.doc)[0];
 
 // unit tests
 describe('validator', function () {
-    let req;
+    var req;
     beforeEach(function () {
         // refresh req object
-        req = Object.assign({}, environment.request);
+        req = deepcopy(environment.request);
     });
     it('throws error on wrong request method', function () {
         req.method = 'POST';
@@ -65,6 +66,15 @@ describe('validator', function () {
             expect(validate(req)).to.throw(Error);
         } catch (err) {
             expect(err.code).to.be.equal(2);
+        }
+    });
+    it('throws error on wrong parameter type', function () {
+        req.query.limit = 'haha';
+        try {
+            expect(validate(req)).to.throw(Error);
+        } catch (err) {
+            console.log(err);
+            expect(err.code).to.be.equal(3);
         }
     });
     // TODO: more tests
