@@ -88,8 +88,7 @@ describe('validator', function () {
         }
     });
     it('throws no errors', function () {
-        validate(req, {}, function () {
-        });
+        validate(req, {}, function () {});
     });
     it('throws error if token test is called and failed', function () {
         req.query.token = 'fc6d';
