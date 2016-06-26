@@ -13,7 +13,7 @@ module.exports = function (doc) {
                 if (param.required) throw new DocError(`missing required query parameter '${param.name}'`, 2);
             } else {
                 let actual = req.query[param.name];
-                if (typeof actual !== param.type) throw new DocError(`wrong type of query parameter '${param.name}'. Expected '${param.type}', got '${typeof actual}'`, 3);
+                if (param.type && typeof actual !== param.type) throw new DocError(`wrong type of query parameter '${param.name}'. Expected '${param.type}', got '${typeof actual}'`, 3);
                 // run test
                 if (param.test) {
                     try {
