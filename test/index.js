@@ -78,13 +78,25 @@ describe('validator', function () {
         }
     });
     // TODO: more tests
-    it('throws error if wrong type', function() {
+    it('throws error if wrong type', function () {
         req.query.limit = 'Telest';
         try {
             expect(validate(req)).to.throw(Error);
         }
-        catch(e){
+        catch (e) {
             expect(e.code).to.be.equal(3); //wrong query param type
+        }
+    });
+    it('throws no errors', function () {
+        validate(req, {}, function () {
+        });
+    });
+    it('throws error if token test is called and failed', function () {
+        req.query.token = 'fc6d';
+        try{
+            expect(validate(req)).to.throw(Error);
+        } catch (e){
+            expect(e.code).to.be.equal(4); //lol
         }
     });
 });
