@@ -73,7 +73,6 @@ describe('validator', function () {
         try {
             expect(validate(req)).to.throw(Error);
         } catch (err) {
-            console.log(err);
             expect(err.code).to.be.equal(3);
         }
     });
