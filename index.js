@@ -9,7 +9,7 @@ module.exports = function (doc) {
             throw new DocError(`wrong method. expected ${doc.method.toUpperCase()}`, 1);
         }
         doc.queryParams.forEach(function (param) {
-            if (req.query[param.name] === 'undefined') {
+            if (req.query[param.name] === undefined) {
                 if (param.required) throw new DocError(`missing required query parameter '${param.name}'`, 2);
             } else {
                 let actual = req.query[param.name];

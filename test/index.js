@@ -60,7 +60,7 @@ describe('validator', function () {
         }
     });
     it('throws error on missing required parameters', function () {
-        req.query.token = 'undefined';
+        req.query.token = undefined;
         try {
             expect(validate(req)).to.throw(Error);
         } catch (err) {
