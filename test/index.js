@@ -43,7 +43,9 @@ function naturalNumberTest(number) {
     if (!Number.isInteger(number)) throw new Error(`must be integer`);
 }
 
-const validate = require('../index')(environment.doc)[0];
+const validate = require('../index')(environment.doc)[0],
+    DocError = require('../docError'),
+    errors = require('../errors');
 
 // unit tests
 describe('validator', function () {
@@ -96,5 +98,14 @@ describe('validator', function () {
         } catch (e){
             expect(e.code).to.be.equal(4); //lol
         }
+    });
+});
+
+describe('DocError', function () {
+    it('builds correct error messages', function() {
+        let err = new DocError(1, environment.doc);
+        expect(err.message).to.be.equal(errors(1, environment.doc));
+        err = new DocError(2, environment.doc.queryParams[0]);
+        expect(err.message).to.be.equal(errors(2, environment.doc.queryParams[0]));
     });
 });
